@@ -1,5 +1,4 @@
 enum choicList{
-  plane,
-  boat,
-  car
+  Man,
+  Woman
 }

@@ -33,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
    bool switchdata=false;
-   choicList _radiolist=choicList.plane;
+   choicList _radiolist=choicList.Man;
 
   @override
   Widget build(BuildContext context) {
@@ -60,24 +60,19 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Radio(value: choicList.car, groupValue: _radiolist, onChanged: (val){
+              Radio(value: choicList.Man, groupValue: _radiolist, onChanged: (val){
                  setState(() {
-                      _radiolist=choicList.car;
+                      _radiolist=choicList.Man;
                  });
               }),
-                Text("Car",style: _radiolist==choicList.car ? const TextStyle(fontWeight: FontWeight.bold) : const TextStyle(),),
-                Radio(value: choicList.plane, groupValue: _radiolist, onChanged: (val){
+                Text("Man",style: _radiolist==choicList.Man ? const TextStyle(fontWeight: FontWeight.bold) : const TextStyle(),),
+                Radio(value: choicList.Woman, groupValue: _radiolist, onChanged: (val){
                  setState(() {
-                      _radiolist=choicList.plane;
+                      _radiolist=choicList.Woman;
                  });
               }),
-            Text("Plane",style: _radiolist==choicList.plane ? const TextStyle(fontWeight: FontWeight.bold) : const TextStyle(),),
-                Radio(value: choicList.boat, groupValue: _radiolist, onChanged: (val){
-                 setState(() {
-                      _radiolist=choicList.boat;
-                 });
-              }),
-              Text("Boat",style: _radiolist==choicList.boat ? const TextStyle(fontWeight: FontWeight.bold) : const TextStyle(),),
+            Text("Woman",style: _radiolist==choicList.Woman ? const TextStyle(fontWeight: FontWeight.bold) : const TextStyle(),),
+              
             ],
           )
           
