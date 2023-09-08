@@ -35,6 +35,14 @@ class _MyHomePageState extends State<MyHomePage> {
    bool switchdata=false;
    choicList _radiolist=choicList.Man;
 
+   Map mapTransprot={
+    transport.boat:false,
+    transport.car:false,
+    transport.plane:false,
+   };
+
+   double sliderval=5.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,10 +80,53 @@ class _MyHomePageState extends State<MyHomePage> {
                  });
               }),
             Text("Woman",style: _radiolist==choicList.Woman ? const TextStyle(fontWeight: FontWeight.bold) : const TextStyle(),),
-              
             ],
-          )
-          
+          ),
+          const Divider(color: Colors.blue),
+          const Text("CheckBox"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Checkbox(value: mapTransprot[transport.boat], onChanged: (val){
+                setState(() {
+                  mapTransprot[transport.boat]=val;
+                });
+              }),
+              Text("Boat",style: mapTransprot[transport.boat] ? const TextStyle(fontWeight: FontWeight.bold) : const TextStyle(),),
+                Checkbox(value: mapTransprot[transport.car], onChanged: (val){
+                setState(() {
+                  mapTransprot[transport.car]=val;
+                });
+              }),
+                Text("Car",style: mapTransprot[transport.car] ? const TextStyle(fontWeight: FontWeight.bold) : const TextStyle(),),
+                Checkbox(value: mapTransprot[transport.plane], onChanged: (val){
+                setState(() {
+                  mapTransprot[transport.plane]=val;
+                });
+              }),
+                Text("Plane",style: mapTransprot[transport.plane] ? const TextStyle(fontWeight: FontWeight.bold) :const  TextStyle(),),
+            ], 
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+                 Icon(Icons.directions_boat,color: mapTransprot[transport.boat] ? Colors.teal :Colors.grey,),
+                 Icon(Icons.directions_car,color: mapTransprot[transport.car] ? Colors.teal :Colors.grey,),
+                 Icon(Icons.flight,color: mapTransprot[transport.plane] ? Colors.teal :Colors.grey,),
+            ],
+          ),
+          const Divider(color: Colors.blue),
+          const Text("Slider"),
+          Slider(value: sliderval,
+          max: 10,
+          min: 2,
+          divisions: 10,
+          onChanged: (val){
+            setState(() {
+                sliderval=val; 
+            });
+          }),
+          Text('$sliderval',style: TextStyle(color: sliderval>5 ? Colors.red : Colors.black))
         ]),
       ),
     );
